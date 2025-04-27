@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:t_store/common/layouts/headers/header.dart';
 import 'package:t_store/common/widgets/containers/rounded_container.dart';
 
 class DesktopLayout extends StatelessWidget {
@@ -15,11 +16,7 @@ final Widget? body;
               child: Column(
             children: [
               //HEADER
-              const TRoundedContainer(
-                width: double.infinity,
-                height: 75,
-                backgroundColor: Colors.yellow,
-              ),
+              const THeader(),
               //BODY
               if(body!=null)body!,
             ],

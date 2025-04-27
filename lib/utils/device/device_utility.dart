@@ -6,6 +6,8 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+import '../constants/sizes.dart';
+
 class TDeviceUtils {
   static void hideKeyboard(BuildContext context) {
     FocusScope.of(context).requestFocus(FocusNode());
@@ -111,6 +113,25 @@ class TDeviceUtils {
     }
   }
 
+  /// Checks if the screen width corresponds to a desktop layout size.
+  /// Returns `true` if screen width >= `TSizes.desktopScreenSize`, `false` otherwise.
+  static bool isDesktopScreen(BuildContext context) {
+    // Assumes TSizes.desktopScreenSize is defined elsewhere
+    return MediaQuery.of(context).size.width >= TSizes.desktopScreenSize;
+  }
 
-// Add more device utility methods as per your specific requirements.
+  /// Checks if the screen width corresponds to a tablet layout size.
+  /// Returns `true` if screen width is between tablet and desktop sizes, `false` otherwise.
+  static bool isTabletScreen(BuildContext context) {
+    // Assumes TSizes constants are defined elsewhere
+    return MediaQuery.of(context).size.width > TSizes.tabletScreenSize &&
+        MediaQuery.of(context).size.width < TSizes.desktopScreenSize;
+  }
+
+  /// Checks if the screen width corresponds to a mobile layout size.
+  /// Returns `true` if screen width < `TSizes.tabletScreenSize`, `false` otherwise.
+  static bool isMobileScreen(BuildContext context) {
+    // Assumes TSizes.tabletScreenSize is defined elsewhere
+    return MediaQuery.of(context).size.width < TSizes.tabletScreenSize;
+  }
 }
